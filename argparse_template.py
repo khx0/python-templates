@@ -3,8 +3,8 @@
 ##########################################################################################
 # author: Nikolas Schnellbaecher
 # contact: khx0@posteo.net
-# date: 2020-02-29
-# file: plain_assay_script.py
+# date: 2020-03-09
+# file: argparse_template.py
 ##########################################################################################
 
 import sys
@@ -24,15 +24,22 @@ os.makedirs(RAWDIR, exist_ok = True)
 os.makedirs(OUTDIR, exist_ok = True)
 
 def my_func(input, output, param = 1.0):
+	'''
+	dummy worker function
+	'''
+	print("input =", input)
+	print("output =", output)
 
-	print(input)
+	assert os.path.isfile(input), f"Error: Input file {input} does not exist."
 
-	print(output)
+	##############
+	# DO WORK HERE
+	##############
 
 	return None
 
 if __name__ == '__main__':
-    
+
     print(__file__, "running using python", platform.python_version())
 
     input_file = './input_file.dat'
@@ -41,17 +48,15 @@ if __name__ == '__main__':
 
     parser = argparse.ArgumentParser(description = 'my_func function')
 
-    parser.add_argument('-i', '--input', type = str, required = True,
+    parser.add_argument('-i', '--input', type = str, 
+    					required = True,
     					help = 'input file')
 
-    parser.add_argument('-o', '--output', type = str, required = True,
+    parser.add_argument('-o', '--output', type = str,
+    				    required = True,
     					help = 'output file')
-
 
     args = parser.parse_args()
 
-    print(args.input)
-    print(args.output)
-
-    # my_func(input = input_file,
-    # 		output = output_file)
+    my_func(input = args.input,
+    		output = args.output)
