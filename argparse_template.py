@@ -7,6 +7,15 @@
 # file: argparse_template.py
 ##########################################################################################
 
+'''
+example invocation
+$python argparse_template.py -i ./input_file.dat -o ./output_file.dat
+Type
+$python argparse_template.py
+to see the automatic help provided by argparse.
+Here, python denotes your desired python interpreter.
+'''
+
 import sys
 import datetime
 import os
@@ -41,10 +50,6 @@ def my_func(input, output, param = 1.0):
 if __name__ == '__main__':
 
     print(__file__, "running using python", platform.python_version())
-
-    input_file = './input_file.dat'
-
-    output_file = './output_file.dat'
 
     parser = argparse.ArgumentParser(description = 'my_func function')
 
