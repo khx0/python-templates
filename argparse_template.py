@@ -33,19 +33,19 @@ os.makedirs(RAWDIR, exist_ok = True)
 os.makedirs(OUTDIR, exist_ok = True)
 
 def my_func(input, output, param = 1.0):
-	'''
-	dummy worker function
-	'''
-	print("input =", input)
-	print("output =", output)
+    '''
+    dummy worker function
+    '''
+    print("input =", input)
+    print("output =", output)
 
-	assert os.path.isfile(input), f"Error: Input file {input} does not exist."
+    assert os.path.isfile(input), f"Error: Input file {input} does not exist."
 
-	##############
-	# DO WORK HERE
-	##############
+    ##############
+    # DO WORK HERE
+    ##############
 
-	return None
+    return None
 
 if __name__ == '__main__':
 
@@ -54,14 +54,15 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description = 'my_func function')
 
     parser.add_argument('-i', '--input', type = str, 
-    					required = True,
-    					help = 'input file')
+                        required = True,
+                        help = 'input file')
 
     parser.add_argument('-o', '--output', type = str,
-    				    required = True,
-    					help = 'output file')
+                        required = True,
+                        help = 'output file')
 
     args = parser.parse_args()
 
     my_func(input = args.input,
-    		output = args.output)
+            output = args.output)
+
