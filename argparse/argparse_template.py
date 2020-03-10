@@ -12,8 +12,8 @@ example invocation
 $python argparse_template.py -i ./input_file.dat -o ./output_file.dat
 Type
 $python argparse_template.py
-to see the automatic help provided by argparse.
-Here, python denotes your desired python interpreter.
+to see the automatic help prompt provided by argparse.
+Here, python denotes your default python interpreter on your system.
 '''
 
 import sys
@@ -29,9 +29,6 @@ BASEDIR = os.path.dirname(os.path.abspath(__file__))
 RAWDIR = os.path.join(BASEDIR, 'raw')
 OUTDIR = os.path.join(BASEDIR, 'out')
 
-os.makedirs(RAWDIR, exist_ok = True)
-os.makedirs(OUTDIR, exist_ok = True)
-
 def my_func(input, output, param = 1.0):
     '''
     dummy worker function
@@ -43,15 +40,18 @@ def my_func(input, output, param = 1.0):
 
     cmd = f'touch {output}'
     os.system(cmd)
-    ##############
-    # DO WORK HERE
-    ##############
+
+    ########################
+    #                      #
+    #     DO WORK HERE     #
+    #                      #
+    ########################
 
     return None
 
 if __name__ == '__main__':
 
-    print(__file__, "running using python", platform.python_version())
+    print("running", __file__, "using python", platform.python_version())
 
     parser = argparse.ArgumentParser(description = 'my_func function')
 
