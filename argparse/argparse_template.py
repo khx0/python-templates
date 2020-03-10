@@ -3,7 +3,7 @@
 ##########################################################################################
 # author: Nikolas Schnellbaecher
 # contact: khx0@posteo.net
-# date: 2020-03-09
+# date: 2020-03-10
 # file: argparse_template.py
 ##########################################################################################
 
@@ -41,6 +41,8 @@ def my_func(input, output, param = 1.0):
 
     assert os.path.isfile(input), f"Error: Input file {input} does not exist."
 
+    cmd = f'touch {output}'
+    os.system(cmd)
     ##############
     # DO WORK HERE
     ##############
