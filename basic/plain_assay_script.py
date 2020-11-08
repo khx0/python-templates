@@ -3,17 +3,18 @@
 ##########################################################################################
 # author: Nikolas Schnellbaecher
 # contact: khx0@posteo.net
-# date: 2020-02-29
+# date: 2020-11-08
 # file: plain_assay_script.py
 ##########################################################################################
 
 import sys
-import datetime
 import os
-import numpy as np
 import platform
+import datetime
+import numpy as np
 
 today = datetime.datetime.now().strftime("%Y-%m-%d")
+now   = datetime.datetime.now().strftime("%Y-%m-%d_%H_%M_%S")
 
 BASEDIR = os.path.dirname(os.path.abspath(__file__))
 RAWDIR = os.path.join(BASEDIR, 'raw')
@@ -23,5 +24,8 @@ os.makedirs(RAWDIR, exist_ok = True)
 os.makedirs(OUTDIR, exist_ok = True)
 
 if __name__ == '__main__':
-    
+
     print(__file__, "running using python", platform.python_version())
+
+    print("today: ", today)
+    print("now: ", now)
